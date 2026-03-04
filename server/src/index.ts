@@ -2,6 +2,8 @@ import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
+import apiKeysRouter from './routes/apiKeys.js'
+import clientsRouter from './routes/clients.js'
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -22,6 +24,10 @@ app.get('/api/health', (_req, res) => {
     timestamp: new Date().toISOString(),
   })
 })
+
+// Routes
+app.use('/api/api-keys', apiKeysRouter)
+app.use('/api/clients', clientsRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} (${process.env.NODE_ENV || 'development'})`)
