@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===== THEME MAPPING (shadcn/ui compatibility) ===== */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Custom surface colors for the design system */
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+}
+
+/* ===== DESIGN TOKENS — Core30 AI Agent ===== */
+/* Dark-only app. We set .dark on <html> and use these values everywhere. */
+
+:root {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  --font-heading: var(--font-sans);
+  --radius: 0.625rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 1px rgba(124, 92, 252, 0.2), 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  /* Transitions */
+  --transition-fast: 0.1s ease;
+  --transition-base: 0.15s ease;
+  --transition-slow: 0.25s ease;
+
+  /* === All colors (dark theme is the only theme) === */
+
+  /* Background surfaces (layered depth) */
+  --background: #09090b;
+  --surface-0: #09090b;
+  --surface-1: #111114;
+  --surface-2: #18181b;
+  --surface-3: #1f1f23;
+  --foreground: #fafafa;
+
+  /* Primary (indigo-violet) */
+  --primary: #7c5cfc;
+  --primary-hover: #6a4ce6;
+  --primary-foreground: #ffffff;
+  --primary-muted: rgba(124, 92, 252, 0.12);
+  --ring: #7c5cfc;
+
+  /* Secondary */
+  --secondary: #1f1f23;
+  --secondary-hover: #27272a;
+  --secondary-foreground: #e4e4e7;
+
+  /* Text hierarchy */
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-disabled: #52525b;
+
+  /* Borders */
+  --border: #27272a;
+  --border-subtle: #1f1f23;
+  --border-active: #7c5cfc;
+
+  /* Inputs */
+  --input: #111114;
+  --input-border: #27272a;
+  --input-focus-border: #7c5cfc;
+  --input-placeholder: #52525b;
+  --input-text: #fafafa;
+
+  /* Semantic */
+  --success: #34d399;
+  --success-muted: rgba(52, 211, 153, 0.12);
+  --warning: #fbbf24;
+  --warning-muted: rgba(251, 191, 36, 0.12);
+  --destructive: #f87171;
+  --destructive-muted: rgba(248, 113, 113, 0.12);
+  --destructive-foreground: #ffffff;
+  --info: #60a5fa;
+
+  /* Cards */
+  --card: #111114;
+  --card-foreground: #fafafa;
+  --card-border: #27272a;
+  --card-hover: #18181b;
+
+  /* Popovers */
+  --popover: #18181b;
+  --popover-foreground: #fafafa;
+  --popover-border: #27272a;
+
+  /* Muted */
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+
+  /* Accent */
+  --accent: #1f1f23;
+  --accent-foreground: #fafafa;
+
+  /* Charts */
+  --chart-1: #7c5cfc;
+  --chart-2: #34d399;
+  --chart-3: #60a5fa;
+  --chart-4: #fbbf24;
+  --chart-5: #f472b6;
+}
+
+/* ===== BASE STYLES ===== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
