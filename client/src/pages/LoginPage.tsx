@@ -31,7 +31,7 @@ export function LoginPage() {
       <Card className="w-full max-w-md border-[var(--card-border)] bg-[var(--card)]">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-semibold text-[var(--text-primary)]">
-            One Shot
+            One Shot Max SEO
           </CardTitle>
           <CardDescription className="text-[var(--text-secondary)]">
             Local SEO automation platform

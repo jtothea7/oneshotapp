@@ -13,7 +13,7 @@ export function Header() {
         onClick={() => navigate('/')}
         className="text-base font-semibold tracking-tight text-[var(--text-primary)] hover:opacity-80 transition-opacity"
       >
-        One Shot
+        One Shot Max SEO
       </button>
 
       <div className="flex items-center gap-3">

@@ -1,5 +1,5 @@
 -- ============================================================
--- One Shot SEO — Initial Database Schema
+-- One Shot Max SEO — Initial Database Schema
 -- Run this in Supabase SQL Editor (Dashboard → SQL Editor → New Query)
 -- ============================================================
 
