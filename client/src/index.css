@@ -47,7 +47,7 @@
   --color-info: var(--info);
 }
 
-/* ===== DESIGN TOKENS — Core30 AI Agent ===== */
+/* ===== DESIGN TOKENS — One Shot ===== */
 /* Dark-only app. We set .dark on <html> and use these values everywhere. */
 
 :root {
